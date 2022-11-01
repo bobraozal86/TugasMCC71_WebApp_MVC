@@ -270,3 +270,4 @@ C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\obj\Debug\net6.0\Tugas4MCC71.
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\obj\Debug\net6.0\ref\Tugas4MCC71.dll
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.PowerBI.Api.dll
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.Rest.ClientRuntime.dll
+C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\BCrypt.Net-Core.dll

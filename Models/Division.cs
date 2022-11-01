@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using Tugas4MCC71.Base;
 
 namespace Tugas4MCC71.Models
 {
-    public class Division
+    public class Division : BaseModel
     {
         public Division(int Division_Id, string Name)
         {

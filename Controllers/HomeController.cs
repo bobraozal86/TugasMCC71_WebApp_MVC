@@ -13,10 +13,10 @@ namespace Tugas4MCC71.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(ViewModelLogin viewModelLogin)
+        public IActionResult Index()
         {
             
-            return View(viewModelLogin);
+            return View();
         }
 
         public IActionResult Privacy()

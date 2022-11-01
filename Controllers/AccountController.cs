@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Tugas4MCC71.Context;
+using Tugas4MCC71.Handlers;
 using Tugas4MCC71.Models;
 
 namespace Tugas4MCC71.Controllers
@@ -21,19 +22,29 @@ namespace Tugas4MCC71.Controllers
         [HttpPost]
         public IActionResult Login(string email, string password)
         {
+            
             var data = myContext.Users
                 .Include(x => x.Employee)
                 .Include(x => x.Role)
-                .SingleOrDefault(x => x.Employee.Email.Equals(email) && x.Password.Equals(password));
-            if (data != null)
+                .SingleOrDefault(x => x.Employee.Email.Equals(email));
+            //cara pertama make var check
+            //var check = Hashing.ValidatePassword(password, data.Password);
+            //cara kedua bisa langsung bandingin didalem if
+            if (data != null && Hashing.ValidatePassword(password, data.Password) == true)
             {
-                ViewModelLogin viewModelLogin = new ViewModelLogin()
-                {
-                    Name = data.Employee.Name,
-                    Email = data.Employee.Email,
-                    Role = data.Role.Name
-                };
-                return RedirectToAction("Index", "Home", viewModelLogin);
+                //ViewModelLogin viewModelLogin = new ViewModelLogin()
+                //{
+                //    Name = data.Employee.Name,
+                //    Email = data.Employee.Email,
+                //    Role = data.Role.Name
+                //};
+                HttpContext.Session.SetInt32("Id", data.Id);
+                HttpContext.Session.SetString("FullName", data.Employee.Name);
+                HttpContext.Session.SetString("Email", data.Employee.Email);
+                HttpContext.Session.SetString("Role", data.Role.Name);
+
+                return RedirectToAction("Index", "Home");
+               // return RedirectToAction("Index", "Home", viewModelLogin);
             }
             return View();
         }
@@ -46,30 +57,39 @@ namespace Tugas4MCC71.Controllers
         [HttpPost]
         public IActionResult Register(string name, string email, string birthDate, string password)
         {
-            Employee employee = new Employee()
+            var checkMail = myContext.Employees.SingleOrDefault(x => x.Email.Equals(email));
+            if (checkMail != null)
             {
-                Name = name,
-                Email = email,
-                Birth_Date = birthDate
-            };
-            myContext.Employees.Add(employee);
-            var result = myContext.SaveChanges();
-            if (result > 0)
+                return View();
+            }
+            else
             {
-                var id = myContext.Employees.SingleOrDefault(x => x.Email.Equals(email)).Employee_Id;
-                User user = new User()
-                {       
-                    Password = password,
-                    Role_Id = 1,
-                    Employee_Id = id
-                };
-                myContext.Users.Add(user);
-                var resultUser = myContext.SaveChanges();
-                if (resultUser > 0)
+                Employee employee = new Employee()
                 {
-                    return RedirectToAction("Login", "Account");
-                }
+                    Name = name,
+                    Email = email,
+                    Birth_Date = birthDate
+                };
+                myContext.Employees.Add(employee);
+                var result = myContext.SaveChanges();
 
+                if (result > 0)
+                {
+                    var id = myContext.Employees.SingleOrDefault(x => x.Email.Equals(email)).Employee_Id;
+                    User user = new User()
+                    {
+                        Password = Hashing.HashPassword(password),
+                        Role_Id = 1,
+                        Employee_Id = id
+                    };
+                    myContext.Users.Add(user);
+                    var resultUser = myContext.SaveChanges();
+                    if (resultUser > 0)
+                    {
+                        return RedirectToAction("Login", "Account");
+                    }
+
+                }
             }
             return View();
         }
@@ -88,9 +108,9 @@ namespace Tugas4MCC71.Controllers
                //AsNoTracking digunain untuk ngebaca data dan tidak melacak entitas yang ada tujuannya untuk
                //insert, update, atau delete data
              //  .AsNoTracking()
-               .SingleOrDefault(x => x.Employee.Email.Equals(email) && x.Password.Equals(password));
+               .SingleOrDefault(x => x.Employee.Email.Equals(email));
            // myContext.SaveChanges();
-            if (data != null)
+            if (data != null && Hashing.ValidatePassword(password, data.Password) == true)
             {
                 //var id = myContext.Employees.SingleOrDefault(x => x.Email.Equals(email)).Employee_Id;
                 //User user = new User()
@@ -100,7 +120,7 @@ namespace Tugas4MCC71.Controllers
                 //    Role_Id = data.Role_Id,
                 //    Employee_Id = data.Employee_Id
                 //};
-                data.Password = confirm;
+                data.Password = Hashing.HashPassword(confirm);
                 myContext.Entry(data).State = EntityState.Modified;
                 var resultUser = myContext.SaveChanges();
                 if (resultUser > 0)
@@ -135,7 +155,7 @@ namespace Tugas4MCC71.Controllers
                 //    Role_Id = data.Role_Id,
                 //    Employee_Id = data.Employee_Id
                 //};
-                data.Password = confirm;
+                data.Password = Hashing.HashPassword(confirm);
                 myContext.Entry(data).State = EntityState.Modified;
                 var resultUser = myContext.SaveChanges();
                 if (resultUser > 0)
