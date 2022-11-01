@@ -84,21 +84,24 @@ namespace Tugas4MCC71.Controllers
         {
             var data = myContext.Users
                .Include(x => x.Employee)
-               .Include(x => x.Role)
-               .AsNoTracking()
+               //.Include(x => x.Role)
+               //AsNoTracking digunain untuk ngebaca data dan tidak melacak entitas yang ada tujuannya untuk
+               //insert, update, atau delete data
+             //  .AsNoTracking()
                .SingleOrDefault(x => x.Employee.Email.Equals(email) && x.Password.Equals(password));
-            myContext.SaveChanges();
+           // myContext.SaveChanges();
             if (data != null)
             {
                 //var id = myContext.Employees.SingleOrDefault(x => x.Email.Equals(email)).Employee_Id;
-                User user = new User()
-                {
-                    Id = data.Id,
-                    Password = confirm,
-                    Role_Id = data.Role_Id,
-                    Employee_Id = data.Employee_Id
-                };
-                myContext.Entry(user).State = EntityState.Modified;
+                //User user = new User()
+                //{
+                //    Id = data.Id,
+                //    Password = confirm,
+                //    Role_Id = data.Role_Id,
+                //    Employee_Id = data.Employee_Id
+                //};
+                data.Password = confirm;
+                myContext.Entry(data).State = EntityState.Modified;
                 var resultUser = myContext.SaveChanges();
                 if (resultUser > 0)
                 {
@@ -118,21 +121,22 @@ namespace Tugas4MCC71.Controllers
         {
             var data = myContext.Users
                .Include(x => x.Employee)
-               .Include(x => x.Role)
+               //.Include(x => x.Role)
                .AsNoTracking()
                .SingleOrDefault(x => x.Employee.Email.Equals(email));
             myContext.SaveChanges();
             if (data != null)
             {
                 //var id = myContext.Employees.SingleOrDefault(x => x.Email.Equals(email)).Employee_Id;
-                User user = new User()
-                {
-                    Id = data.Id,
-                    Password = confirm,
-                    Role_Id = data.Role_Id,
-                    Employee_Id = data.Employee_Id
-                };
-                myContext.Entry(user).State = EntityState.Modified;
+                //User user = new User()
+                //{
+                //    Id = data.Id,
+                //    Password = confirm,
+                //    Role_Id = data.Role_Id,
+                //    Employee_Id = data.Employee_Id
+                //};
+                data.Password = confirm;
+                myContext.Entry(data).State = EntityState.Modified;
                 var resultUser = myContext.SaveChanges();
                 if (resultUser > 0)
                 {
