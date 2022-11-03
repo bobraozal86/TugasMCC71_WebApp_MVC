@@ -6,6 +6,7 @@ C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Tugas4MCC71.
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Tugas4MCC71.runtimeconfig.json
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Tugas4MCC71.dll
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Tugas4MCC71.pdb
+C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\BCrypt.Net-Core.dll
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\MessagePack.dll
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\MessagePack.Annotations.dll
@@ -44,6 +45,8 @@ C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.Id
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.NET.StringTools.dll
+C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.PowerBI.Api.dll
+C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.Rest.ClientRuntime.dll
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.VisualStudio.Debugger.Contracts.dll
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -268,6 +271,5 @@ C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\obj\Debug\net6.0\refint\Tugas
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\obj\Debug\net6.0\Tugas4MCC71.pdb
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\obj\Debug\net6.0\Tugas4MCC71.genruntimeconfig.cache
 C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\obj\Debug\net6.0\ref\Tugas4MCC71.dll
-C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.PowerBI.Api.dll
-C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.Rest.ClientRuntime.dll
-C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\BCrypt.Net-Core.dll
+C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\Bob Raozal\source\repos\MCC71\Tugas4MCC71\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll
