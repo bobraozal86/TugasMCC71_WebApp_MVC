@@ -2,14 +2,90 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "adminLayout";
 }
 
-<h1>Index</h1>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createDepartment">Create New</button>
+<div class="modal fade" id="createDepartment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Department</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div id="createDepart">
+                    <p>Name: </p><input type="text" class="form-control" id="name">
+                    <p>Division Id: </p><input type="text" class="form-control" id="departmentDivId">
+                    <p></p>
+                    <button type="button" class="btn btn-primary" id="createBtn" onclick="create()">Save changes</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<p></p>
+<table class="table" id="tableDepartment">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                action
+            </th>
+        </tr>
+    </thead>
+</table>
+<!-- Modal -->
+<div class="modal fade" id="detailsDepartment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Department</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div id="tampilDetails">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                @*<button type="button" class="btn btn-primary">Save changes</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editDepartment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Department</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div id="tampilEdit">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@*<script src="~/js/Department.js"></script>
+*@@*<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table" id="tableDepartment">
     <thead>
         <tr>
             <th>
@@ -39,3 +115,4 @@
 }
     </tbody>
 </table>
+*@
